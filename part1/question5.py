@@ -32,8 +32,10 @@ sql_create_favorite_foods = """
 # The test suite will verify the new changes by inserting some new rows. 
 
 sql_alter_tables_with_favorite_food = """
-
-Your SQL here.
+ALTER TABLE people 
+ADD COLUMN 'favorite_food_id' INTEGER;
+ALTER TABLE animals 
+ADD COLUMN 'favorite_food_id' INTEGER
 
 """
 
@@ -43,6 +45,7 @@ Your SQL here.
 
 sql_select_all_vegetarian_pets = """
 
-Your SQL here.
+SELECT animals.name,favorite_foods.name FROM animals INNER JOIN favorite_foods 
+ON food_id = favorite_food_id AND vegetarian = 1
 
 """
