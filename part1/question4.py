@@ -24,7 +24,9 @@ import pets_db
 
 sql_pets_owned_by_nobody = """
 
-Your SQL here.
+SELECT animals.name , animals.species, animals.age FROM animals
+LEFT JOIN people_animals ON animals.animal_id == people_animals.pet_id 
+WHERE people_animals.pet_id IS NULL  
 
 """
 

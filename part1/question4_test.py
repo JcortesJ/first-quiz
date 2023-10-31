@@ -19,10 +19,10 @@ def test_question4_pets_owned_by_nobody():
     rows = res.fetchall()
 
   rows.sort()
-
   assert len(rows) == 2
   assert rows[0] == ('petey', 'gray whale', 38)
   assert rows[1] == ('shannon', 'cow', 14)
+  
 
 def test_question4_only_owned_by_bessie():
   pets_db.create_db()
