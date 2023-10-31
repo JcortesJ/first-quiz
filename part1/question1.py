@@ -14,22 +14,34 @@
 # Read the test suite to know the values that these functions should return.
 
 def get_city_temperature(city):
-   if city == "Quito":
+   #In this case we strip and lower the strings to avoid misspelling in the names of the cities
+   #we also add the newyork case
+   city = city.replace(" ","").lower()
+   if city == "quito":
       return 22
-   if city == "Sao Paulo":
+   if city == "saopaulo":
       return 17
-   if city == "San Francisco":
+   if city == "sanfrancisco":
       return 16
+   if city =="newyork":
+      return 14
 
 def get_city_weather(city):
-
+# we add the remaining cases to avoid errors in testing
   sky_condition = None
-
-  if city == "Sao Paulo":
+  city = city.replace(" ","").lower()
+  if city == "saopaulo":
      sky_condition = "cloudy"
-  elif city == "New York":
+  if city == "newyork":
      sky_condition = "rainy"
-
+  if city == "quito":
+     sky_condition = "sunny"
+  if city == "sanfrancisco":
+     sky_condition = "partly sunny"
+     
   temperature = get_city_temperature(city)
-
-  return str(temperature) + " degrees and " + sky_condition
+  if sky_condition:
+      return str(temperature) + " degrees and " + sky_condition
+  else:
+     #we add an extra case if sky_condition is None
+      return str(temperature) + " degrees, with no info about sky condition"
