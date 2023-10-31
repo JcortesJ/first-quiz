@@ -52,6 +52,8 @@ sql_only_owned_by_bessie = """
 SELECT people.name,animals.name,species FROM animals 
 INNER JOIN people_animals ON animal_id==pet_id 
 INNER JOIN people ON person_id==owner_id
-WHERE people.name LIKE '%bessie%'
+GROUP BY animals.animal_id
+HAVING people.name ='bessie'
+
 
 """
