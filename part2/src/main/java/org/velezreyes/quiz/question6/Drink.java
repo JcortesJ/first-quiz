@@ -5,3 +5,4 @@ public interface Drink {
 
   public boolean isFizzy();
 }
+
